@@ -37,12 +37,11 @@
   --sidebar-border: oklch(0.92 0 0);
   --sidebar-ring: oklch(0.71 0 0);
 
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui,
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: Source Serif 4, serif;
-  --font-mono: JetBrains Mono, monospace;
+  --font-sans: "Ploni" sans-serif;
+  --font-serif: "Ploni" serif;
+  --font-mono: "Fira Code" monospace;
+
+  --traking-normal: 0.02em;
 
   --radius: 0.375rem;
 
