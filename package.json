@@ -12,17 +12,53 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
+		"@dnd-kit-svelte/core": "^0.0.8",
+		"@dnd-kit-svelte/modifiers": "^0.0.8",
+		"@dnd-kit-svelte/sortable": "^0.0.8",
+		"@dnd-kit-svelte/utilities": "^0.0.8",
+		"@internationalized/date": "^3.8.1",
+		"@lucide/svelte": "^0.515.0",
 		"@sveltejs/adapter-auto": "^6.0.0",
 		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",
+		"@tabler/icons-svelte": "^3.31.0",
+		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/typography": "^0.5.15",
+		"@tailwindcss/vite": "^4.0.0",
+		"@tanstack/table-core": "^8.20.5",
+		"@types/d3-scale": "^4.0.8",
+		"@types/d3-shape": "^3.1.7",
+		"@types/pg": "^8.15.5",
+		"bits-ui": "^2.8.6",
+		"clsx": "^2.1.1",
+		"d3-scale": "^4.0.2",
+		"d3-shape": "^3.2.0",
+		"drizzle-kit": "^0.31.4",
+		"layerchart": "2.0.0-next.27",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
+		"svelte-sonner": "^1.0.5",
+		"tailwind-merge": "^3.3.1",
+		"tailwind-variants": "^1.0.0",
+		"tailwindcss": "^4.0.0",
+		"tsx": "^4.20.5",
+		"tw-animate-css": "^1.3.8",
 		"typescript": "^5.0.0",
-		"vite": "^7.0.4"
+		"vaul-svelte": "1.0.0-next.7",
+		"vite": "^7.0.4",
+		"zod": "^3.25.64"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
+	"dependencies": {
+		"better-auth": "^1.3.13",
+		"dotenv": "^17.2.2",
+		"drizzle-orm": "^0.44.5",
+		"mode-watcher": "^1.1.0",
+		"pg": "^8.16.3"
 	}
 }
