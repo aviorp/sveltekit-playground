@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
   import { Label } from "$lib/components/ui/label";
@@ -10,9 +10,11 @@
     CardTitle,
   } from "$lib/components/ui/card";
   import { Checkbox } from "$lib/components/ui/checkbox";
+  import { createUser } from "$lib/services/auth.service"; 
 
   let email = $state("");
   let password = $state("");
+	let name = $state("");
   let confirmPassword = $state("");
   let agreeToTerms = $state(false);
   let isLoading = $state(false);
@@ -24,13 +26,13 @@
   let termsError = $state("");
 
   // Email validation
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   // Password validation
-  const validatePassword = (password) => {
+  const validatePassword = (password: string) => {
     return password.length >= 8;
   };
 
@@ -106,7 +108,7 @@
 
     try {
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await createUser(email, password, name);
 
       // Handle successful signup
       console.log("Account created successfully!", { email });
@@ -123,7 +125,7 @@
     }
   };
 
-  const handleSocialSignup = (provider) => {
+  const handleSocialSignup = (provider: string) => {
     console.log(`Sign up with ${provider}`);
   };
 </script>
@@ -203,6 +205,18 @@
             <p class="text-sm text-destructive">{emailError}</p>
           {/if}
         </div>
+				<!-- Name Field -->
+				<div class="space-y-2">
+					<Label for="name">Name</Label>
+					<Input
+						id="name"
+						type="text"
+						placeholder="Enter your name"
+						bind:value={name}
+						disabled={isLoading}
+					/>
+				</div>
+
 
         <!-- Password Field -->
         <div class="space-y-2">
