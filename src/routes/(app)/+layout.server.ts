@@ -1,6 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 
-export const load = async ({ locals }) => {
+export const load = async ({ locals, request }) => {
   if (!locals.user || !locals.session) {
     redirect(303, "/login");
   }

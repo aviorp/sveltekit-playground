@@ -63,3 +63,17 @@ export async function loginUser({
     throw error;
   }
 }
+
+export async function logoutUser() {
+  try {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          goto("/login"); // redirect to login page
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Error logging out:", error);
+  }
+}
