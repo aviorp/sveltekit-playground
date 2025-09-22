@@ -13,7 +13,8 @@
 		"db:push": "drizzle-kit push",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
-		"db:studio": "drizzle-kit studio"
+		"db:studio": "drizzle-kit studio",
+		"auth:generate": "npx @better-auth/cli generate --config ./src/lib/auth/server-client.ts"
 	},
 	"devDependencies": {
 		"@dnd-kit-svelte/core": "^0.0.8",

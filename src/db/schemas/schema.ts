@@ -1,1 +1,1 @@
-export { session, account, verification, user } from "./auth-schema";
+export * from "../../../auth-schema";
