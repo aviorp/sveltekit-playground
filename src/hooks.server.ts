@@ -11,9 +11,16 @@ export async function handle({ event, resolve }) {
     const { session, user } = fetchedSession;
     event.locals.session = session;
     event.locals.user = user;
+    //  Set the cookie with the token
+    event.cookies.set("sb-access-token", session.token, {
+      secure: true,
+      httpOnly: true,
+      path: "/",
+    });
   } else {
     event.locals.session = null;
     event.locals.user = null;
+    event.cookies.delete("sb-access-token", { path: "/" });
   }
 
   return svelteKitHandler({ event, resolve, auth, building });
