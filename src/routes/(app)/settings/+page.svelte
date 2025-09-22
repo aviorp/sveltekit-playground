@@ -5,6 +5,7 @@
   import { page } from "$app/state";
 
   let { data } = $props();
+
   let counterStore = page.data.counterStore;
   let randomNumber = Math.floor(Math.random() * 100);
 </script>

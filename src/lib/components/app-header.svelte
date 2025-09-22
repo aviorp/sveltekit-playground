@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import { Separator } from "$lib/components/ui/separator/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import DarkModeToggle from "./dark-mode-toggle.svelte";
@@ -13,7 +14,8 @@
       orientation="vertical"
       class="mx-2 data-[orientation=vertical]:h-4"
     />
-    <h1 class="text-base font-medium">Documents</h1>
+
+    <h1 class="text-base font-medium">{page.data.title ?? "App"}</h1>
     <div class="ml-auto flex items-center gap-2">
       <DarkModeToggle />
     </div>
