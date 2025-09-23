@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { page } from "$app/state";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import type { Icon } from "@tabler/icons-svelte";
@@ -19,6 +20,9 @@
           <Sidebar.MenuButton
             tooltipContent={item.title}
             isActive={isRouteActive(item.url)}
+            onclick={() => {
+              goto(item.url);
+            }}
           >
             {#if item.icon}
               <item.icon />

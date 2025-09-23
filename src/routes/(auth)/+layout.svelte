@@ -15,16 +15,14 @@
       ></div>
       <div class="w-full max-w-md z-10">
         <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">
-          Vote For Your Games, Just in One Place.
+          Your Ultimate SvelteKit App , Made With ❤️
         </div>
         <div class="sm:text-sm xl:text-md text-slate-200 font-normal">
-          With our automated voting application, you can say goodbye to the
-          time-consuming process of manually submitting your votes. Our advanced
-          algorithms analyze various factors, including gameplay mechanics,
-          graphics, storyline, and player feedback, to generate accurate and
-          personalized voting recommendations for each user. This ensures that
-          your voice is heard and that your preferences align with the overall
-          evaluation of the games.
+          Welcome to your ultimate SvelteKit application! This app is designed
+          to provide a seamless and efficient user experience , leveraging the
+          power of SvelteKit for building fast and modern web applications.
+          Whether you're here to sign up or log in , we're excited to have you
+          on board . Let's get started on your journey with us!
         </div>
       </div>
       <!-- Animated circles -->
