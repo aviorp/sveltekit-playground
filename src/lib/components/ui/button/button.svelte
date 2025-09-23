@@ -1,5 +1,6 @@
 <script lang="ts" module>
   import { cn, type WithElementRef } from "$lib/utils.js";
+  import Loader2Icon from "@lucide/svelte/icons/loader-2";
   import type {
     HTMLAnchorAttributes,
     HTMLButtonAttributes,
@@ -42,6 +43,7 @@
     WithElementRef<HTMLAnchorAttributes> & {
       variant?: ButtonVariant;
       size?: ButtonSize;
+      loading?: boolean;
     };
 </script>
 
@@ -53,6 +55,7 @@
     ref = $bindable(null),
     href = undefined,
     type = "button",
+    loading = false,
     disabled,
     children,
     ...restProps
@@ -81,6 +84,9 @@
     {disabled}
     {...restProps}
   >
+    {#if loading}
+      <Loader2Icon class="animate-spin" />
+    {/if}
     {@render children?.()}
   </button>
 {/if}
