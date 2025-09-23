@@ -1,6 +1,6 @@
-import { redirect } from "@sveltejs/kit";
+import { redirect, type ServerLoad } from "@sveltejs/kit";
 
-export const load = async ({ route }) => {
+export const load: ServerLoad = async ({ route }) => {
   if (!route.id) {
     throw redirect(302, "/dashboard");
   }

@@ -1,7 +1,6 @@
-import { redirect } from "@sveltejs/kit";
-import { Counter } from "../../stores/counter.svelte.js";
+import { redirect, type ServerLoad } from "@sveltejs/kit";
 
-export const load = async ({ locals, request }) => {
+export const load: ServerLoad = async ({ locals, request }) => {
   if (!locals.user || !locals.session) {
     redirect(303, "/login");
   }
