@@ -4,7 +4,7 @@
   import { Button } from "$lib/components/ui/button/index.js";
   import { cn, type WithElementRef } from "$lib/utils.js";
   import type { HTMLFormAttributes } from "svelte/elements";
-  import { loginUser } from "@/services/auth.service";
+  import { page } from "$app/state";
 
   let {
     ref = $bindable(null),
@@ -22,7 +22,8 @@
     try {
       event.preventDefault();
       isLoading = true;
-      await loginUser({ email, password });
+
+      await page.data.authService.loginUser({ email, password });
       // Handle successful login (e.g., redirect to dashboard)
     } catch (error) {
       // Handle login error (e.g., show error message)

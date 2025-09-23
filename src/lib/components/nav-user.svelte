@@ -7,7 +7,7 @@
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import { logoutUser } from "@/services/auth.service";
+  import { page } from "$app/state";
 
   let { user }: { user: { name: string; email: string; avatar: string } } =
     $props();
@@ -75,7 +75,7 @@
           </DropdownMenu.Item>
         </DropdownMenu.Group>
         <DropdownMenu.Separator />
-        <DropdownMenu.Item onclick={logoutUser}>
+        <DropdownMenu.Item onclick={page.data.authService.logoutUser}>
           <LogoutIcon />
           Log out
         </DropdownMenu.Item>

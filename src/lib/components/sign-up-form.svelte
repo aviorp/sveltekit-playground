@@ -10,11 +10,11 @@
     CardTitle,
   } from "$lib/components/ui/card";
   import { Checkbox } from "$lib/components/ui/checkbox";
-  import { createUser } from "$lib/services/auth.service"; 
+  import { page } from "$app/state";
 
   let email = $state("");
   let password = $state("");
-	let name = $state("");
+  let name = $state("");
   let confirmPassword = $state("");
   let agreeToTerms = $state(false);
   let isLoading = $state(false);
@@ -108,7 +108,7 @@
 
     try {
       // Simulate API call
-      await createUser(email, password, name);
+      await page.data.authService.createUser(email, password, name);
 
       // Handle successful signup
       console.log("Account created successfully!", { email });
@@ -205,18 +205,17 @@
             <p class="text-sm text-destructive">{emailError}</p>
           {/if}
         </div>
-				<!-- Name Field -->
-				<div class="space-y-2">
-					<Label for="name">Name</Label>
-					<Input
-						id="name"
-						type="text"
-						placeholder="Enter your name"
-						bind:value={name}
-						disabled={isLoading}
-					/>
-				</div>
-
+        <!-- Name Field -->
+        <div class="space-y-2">
+          <Label for="name">Name</Label>
+          <Input
+            id="name"
+            type="text"
+            placeholder="Enter your name"
+            bind:value={name}
+            disabled={isLoading}
+          />
+        </div>
 
         <!-- Password Field -->
         <div class="space-y-2">
