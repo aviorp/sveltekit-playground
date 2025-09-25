@@ -5,4 +5,5 @@
 </script>
 
 <Toaster position="top-center" richColors />
+
 <slot />

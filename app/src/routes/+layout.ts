@@ -2,7 +2,7 @@ import { AuthService } from "@/services/auth.service";
 import type { Load } from "@sveltejs/kit";
 
 export const load: Load = async () => {
-  const authService = new AuthService();
+  const authService: AuthService = new AuthService();
   return {
     authService,
   };

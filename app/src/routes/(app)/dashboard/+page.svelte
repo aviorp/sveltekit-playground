@@ -1,23 +1,25 @@
 <script lang="ts">
-  import AppPage from "@/components/app-page.svelte";
-  import Button from "@/components/ui/button/button.svelte";
-  import AppHeader from "@/components/app-header.svelte";
-  import { page } from "$app/state";
+  import data from "./data.js";
 
-  let { data } = $props();
-  let counterStore = page.data.counterStore;
-  let randomNumber = Math.floor(Math.random() * 100);
+  import SectionCards from "$lib/components/section-cards.svelte";
+  import ChartAreaInteractive from "$lib/components/chart-area-interactive.svelte";
+  import DataTable from "$lib/components/data-table.svelte";
+  import AppHeader from "@/components/app-header.svelte";
+  import AppPage from "@/components/app-page.svelte";
 </script>
 
 <AppHeader />
 
 <AppPage>
-  <h2>{data.title}</h2>
-  <p>{data.description}</p>
-  <p>Counter: {counterStore.counter}</p>
-  <Button onclick={() => counterStore.increment()}>Increment</Button>
-
-  <Button href={`/dashboard/${randomNumber}`}
-    >Get a random number page: {randomNumber}
-  </Button>
+  <div class="flex flex-1 flex-col">
+    <div class="@container/main flex flex-1 flex-col gap-2">
+      <div class="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+        <SectionCards />
+        <div class="px-4 lg:px-6">
+          <ChartAreaInteractive />
+        </div>
+        <DataTable {data} />
+      </div>
+    </div>
+  </div>
 </AppPage>

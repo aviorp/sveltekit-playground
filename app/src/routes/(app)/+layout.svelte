@@ -3,6 +3,10 @@
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import AppSidebar from "$lib/components/app-sidebar.svelte";
   import { ModeWatcher } from "mode-watcher";
+  import { fade, fly } from "svelte/transition";
+  import { page } from "$app/state";
+
+  const fadeParams = { duration: 450 };
 </script>
 
 <svelte:head>
@@ -15,6 +19,10 @@
 >
   <AppSidebar variant="inset" />
   <Sidebar.Inset>
-    <slot />
+    {#key page.url.pathname}
+      <div in:fade={fadeParams}>
+        <slot />
+      </div>
+    {/key}
   </Sidebar.Inset>
 </Sidebar.Provider>
