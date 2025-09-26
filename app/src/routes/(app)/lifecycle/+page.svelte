@@ -3,9 +3,10 @@
   import Button from "@/components/ui/button/button.svelte";
   import AppHeader from "@/components/app-header.svelte";
   import { page } from "$app/state";
+  import { getCounterStore } from "../../../stores/counter.svelte.js";
 
   let { data } = $props();
-  let counterStore = page.data.counterStore;
+  let counterStore = getCounterStore();
   let randomNumber = Math.floor(Math.random() * 100);
 </script>
 

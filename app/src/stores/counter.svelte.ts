@@ -21,3 +21,9 @@ export class Counter {
     return this.count * 2;
   }
 }
+
+let instance: Counter | null = null;
+export function getCounterStore() {
+  if (!instance) instance = new Counter();
+  return instance;
+}

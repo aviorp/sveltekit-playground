@@ -7,10 +7,11 @@
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import { page } from "$app/state";
+  import type { User } from "better-auth";
 
-  let { user }: { user: { name: string; email: string; avatar: string } } =
-    $props();
+  let { user, logout }: { user: User; logout: Promise<void> } = $props();
+
+  console.log(user);
 
   const sidebar = Sidebar.useSidebar();
 </script>
@@ -26,7 +27,7 @@
             class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
           >
             <Avatar.Root class="size-8 rounded-lg grayscale">
-              <Avatar.Image src={user.avatar} alt={user.name} />
+              <Avatar.Image src={user.image} alt={user.name} />
               <Avatar.Fallback class="rounded-lg">CN</Avatar.Fallback>
             </Avatar.Root>
             <div class="grid flex-1 text-left text-sm leading-tight">
@@ -48,7 +49,7 @@
         <DropdownMenu.Label class="p-0 font-normal">
           <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar.Root class="size-8 rounded-lg">
-              <Avatar.Image src={user.avatar} alt={user.name} />
+              <Avatar.Image src={user.image} alt={user.name} />
               <Avatar.Fallback class="rounded-lg">CN</Avatar.Fallback>
             </Avatar.Root>
             <div class="grid flex-1 text-left text-sm leading-tight">
@@ -75,7 +76,7 @@
           </DropdownMenu.Item>
         </DropdownMenu.Group>
         <DropdownMenu.Separator />
-        <DropdownMenu.Item onclick={page.data.authService.logoutUser}>
+        <DropdownMenu.Item onclick={logout} class="cursor-pointer">
           <LogoutIcon />
           Log out
         </DropdownMenu.Item>

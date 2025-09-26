@@ -39,7 +39,7 @@ export class AuthService {
 
   async loginUser({ email, password }: { email: string; password: string }) {
     try {
-      await authClient.signIn.email(
+      const { data } = await authClient.signIn.email(
         {
           email, // user email address
           password, // user password
@@ -56,6 +56,8 @@ export class AuthService {
           },
         }
       );
+
+      return data;
     } catch (error) {
       throw error;
     }

@@ -20,13 +20,13 @@
   import NavUser from "./nav-user.svelte";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import type { ComponentProps } from "svelte";
+  import { getUserStore } from "../../stores/user.svelte";
+  import { AuthService } from "@/services/auth.service";
+
+  const userStore = getUserStore();
+  const authService = new AuthService();
 
   const data = {
-    user: {
-      name: "shadcn",
-      email: "m@example.com",
-      avatar: "/avatars/shadcn.jpg",
-    },
     navMain: [
       {
         title: "Dashboard",
@@ -161,7 +161,9 @@
     <NavDocuments items={data.documents} />
     <NavSecondary items={data.navSecondary} class="mt-auto" />
   </Sidebar.Content>
-  <Sidebar.Footer>
-    <NavUser user={data.user} />
-  </Sidebar.Footer>
+  {#if userStore.getUser()}
+    <Sidebar.Footer>
+      <NavUser user={userStore.getUser()} logout={authService.logoutUser} />
+    </Sidebar.Footer>
+  {/if}
 </Sidebar.Root>

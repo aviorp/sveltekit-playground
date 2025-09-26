@@ -11,6 +11,9 @@
   } from "$lib/components/ui/card";
   import { Checkbox } from "$lib/components/ui/checkbox";
   import { page } from "$app/state";
+  import { AuthService } from "@/services/auth.service";
+
+  const authService = new AuthService();
 
   let email = $state("");
   let password = $state("");
@@ -107,9 +110,7 @@
     isLoading = true;
 
     try {
-      // Simulate API call
-      await page.data.authService.createUser(email, password, name);
-
+      await authService.createUser(email, password, name, "");
       // Handle successful signup
       console.log("Account created successfully!", { email });
 

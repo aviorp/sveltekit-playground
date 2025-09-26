@@ -5,6 +5,7 @@
   import { cn, type WithElementRef } from "$lib/utils.js";
   import type { HTMLFormAttributes } from "svelte/elements";
   import { page } from "$app/state";
+  import { AuthService } from "@/services/auth.service";
 
   let {
     ref = $bindable(null),
@@ -18,12 +19,15 @@
 
   const id = $props.id();
 
+  const authService = new AuthService();
+
   async function handleSubmit(event: Event) {
     try {
       event.preventDefault();
       isLoading = true;
 
-      await page.data.authService.loginUser({ email, password });
+      await authService.loginUser({ email, password });
+
       // Handle successful login (e.g., redirect to dashboard)
     } catch (error) {
       // Handle login error (e.g., show error message)
