@@ -8,6 +8,6 @@ export const load: Load = async ({ params }) => {
   );
 
   const post = await response.json();
-
+  console.log(post);
   return post;
 };

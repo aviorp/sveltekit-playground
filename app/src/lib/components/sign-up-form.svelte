@@ -10,7 +10,6 @@
     CardTitle,
   } from "$lib/components/ui/card";
   import { Checkbox } from "$lib/components/ui/checkbox";
-  import { page } from "$app/state";
   import { AuthService } from "@/services/auth.service";
 
   const authService = new AuthService();

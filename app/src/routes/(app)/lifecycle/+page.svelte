@@ -18,7 +18,7 @@
   <p>Counter: {counterStore.counter}</p>
   <Button onclick={() => counterStore.increment()}>Increment</Button>
 
-  <Button href={`/dashboard/${randomNumber}`}
+  <Button href={`/lifecycle/${randomNumber}`}
     >Get a random number page: {randomNumber}
   </Button>
 </AppPage>
